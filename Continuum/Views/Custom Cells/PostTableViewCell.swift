@@ -23,9 +23,10 @@ class PostTableViewCell: UITableViewCell {
     
     // MARK: - Helper Methods
     func updateViews() {
-        postImageView.image = post?.photo
-        postCaption.text = post?.caption
-        postCommentCount.text = "\(post?.comments.count ?? 0)"
+        guard let post = post else { return }
+        postImageView.image = post.photo
+        postCaption.text = post.caption
+        postCommentCount.text = "\(post.comments.count)"
     }
     
 

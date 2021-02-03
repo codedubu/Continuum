@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7908AB3025CB525300A1B55B /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7908AB2F25CB525300A1B55B /* SearchableRecord.swift */; };
 		79A95A7325C9F6CA00C1F230 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A95A7225C9F6CA00C1F230 /* CloudKit.framework */; };
 		79A95A7A25C9F8FA00C1F230 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A7925C9F8F900C1F230 /* PostListTableViewController.swift */; };
 		79A95A7E25C9F99700C1F230 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A7D25C9F99700C1F230 /* PostDetailTableViewController.swift */; };
@@ -16,6 +17,7 @@
 		79A95A8D25CA097D00C1F230 /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A8C25CA097D00C1F230 /* PostError.swift */; };
 		79A95A9025CA099A00C1F230 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A8F25CA099A00C1F230 /* DateToString.swift */; };
 		79A95A9425CA138F00C1F230 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A9325CA138F00C1F230 /* PostTableViewCell.swift */; };
+		79A95A9E25CA68A100C1F230 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A95A9D25CA68A100C1F230 /* UIAlertController.swift */; };
 		F7F99C392211F96400D13C4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F99C382211F96400D13C4C /* AppDelegate.swift */; };
 		F7F99C3E2211F96400D13C4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F99C3C2211F96400D13C4C /* Main.storyboard */; };
 		F7F99C402211F96600D13C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7F99C3F2211F96600D13C4C /* Assets.xcassets */; };
@@ -23,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7908AB2F25CB525300A1B55B /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		79A95A7025C9F6C800C1F230 /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
 		79A95A7225C9F6CA00C1F230 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		79A95A7925C9F8F900C1F230 /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		79A95A8C25CA097D00C1F230 /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		79A95A8F25CA099A00C1F230 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 		79A95A9325CA138F00C1F230 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		79A95A9D25CA68A100C1F230 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		F7F99C352211F96400D13C4C /* Continuum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Continuum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F99C382211F96400D13C4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7F99C3D2211F96400D13C4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			children = (
 				79A95A8C25CA097D00C1F230 /* PostError.swift */,
 				79A95A8F25CA099A00C1F230 /* DateToString.swift */,
+				79A95A9D25CA68A100C1F230 /* UIAlertController.swift */,
+				7908AB2F25CB525300A1B55B /* SearchableRecord.swift */,
 			);
 			path = "Helpers & Extensions";
 			sourceTree = "<group>";
@@ -238,11 +244,13 @@
 				79A95A7A25C9F8FA00C1F230 /* PostListTableViewController.swift in Sources */,
 				79A95A8125C9FAFB00C1F230 /* AddPostTableViewController.swift in Sources */,
 				79A95A7E25C9F99700C1F230 /* PostDetailTableViewController.swift in Sources */,
+				79A95A9E25CA68A100C1F230 /* UIAlertController.swift in Sources */,
 				79A95A8525C9FDC300C1F230 /* Post.swift in Sources */,
 				79A95A9025CA099A00C1F230 /* DateToString.swift in Sources */,
 				79A95A8D25CA097D00C1F230 /* PostError.swift in Sources */,
 				79A95A8925CA074100C1F230 /* PostController.swift in Sources */,
 				79A95A9425CA138F00C1F230 /* PostTableViewCell.swift in Sources */,
+				7908AB3025CB525300A1B55B /* SearchableRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

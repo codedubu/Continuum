@@ -26,7 +26,6 @@ class AddPostTableViewController: UITableViewController {
         postCaptionTextField.text = ""
         selectImageButton.setTitle("Select Image", for: .normal)
         postImageView.image = nil
-        self.tabBarController?.selectedIndex = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,12 +40,21 @@ class AddPostTableViewController: UITableViewController {
     }
     
     @IBAction func addPostButtonTapped(_ sender: Any) {
-        
-        guard let caption = postCaptionTextField.text, !caption.isEmpty else { return }
-        if let postImage = postImageView.image {
+//        guard let caption = postCaptionTextField.text, !caption.isEmpty else { return }
+        if let postImage = postImageView.image, let caption = postCaptionTextField.text, !caption.isEmpty {
+       
             PostController.shared.createPostWith(image: postImage, caption: caption) { (_) in
             }
             self.tabBarController?.selectedIndex = 0
+            
+        } else if postImageView.image == nil , let caption = postCaptionTextField.text, !caption.isEmpty {
+            presentPostErrorToUser(textAlert:"You need to add an image!!")
+            
+        } else if postImageView.image != nil , let caption = postCaptionTextField.text, caption.isEmpty{
+            presentPostErrorToUser(textAlert:"You need add a caption!!")
+            
+        } else {
+            presentPostErrorToUser(textAlert: "You need to add both you fool!")
         }
     }
     

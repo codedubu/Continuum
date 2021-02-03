@@ -24,13 +24,16 @@ class Post {
             photoData  = newValue?.jpegData(compressionQuality: 0.5)
         }
     }
-    
+
     init(caption: String, timestamp: Date = Date(), comments: [Comment] = [], photo: UIImage?) {
         self.caption = caption
         self.timestamp = timestamp
         self.comments = comments
         self.photo = photo
+
     }
+    
+
     
 } // END OF CLASS
 
@@ -48,3 +51,16 @@ class Comment {
     
 } // END OF CLASS
 
+extension Post: SearchableRecord {
+    func matches(searchTerm: String) -> Bool {
+//        return caption == searchTerm ?  true : false
+        if caption == searchTerm {
+            return true
+        } else {
+            return false
+        }
+
+    }
+    
+    
+} // END OF EXTENSION
