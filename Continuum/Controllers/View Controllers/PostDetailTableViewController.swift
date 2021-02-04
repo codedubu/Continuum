@@ -88,10 +88,5 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     return cell
 }
 
-// MARK: - Navigation
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- 
-}
-
 
 } // END OF CLASS

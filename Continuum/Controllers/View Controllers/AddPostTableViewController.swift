@@ -22,7 +22,7 @@ class AddPostTableViewController: UITableViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewDidDisappear(animated)
         postCaptionTextField.text = ""
         selectImageButton.setTitle("Select Image", for: .normal)
         postImageView.image = nil
@@ -34,10 +34,39 @@ class AddPostTableViewController: UITableViewController {
     
     // MARK: - Actions
     @IBAction func selectImageButtonTapped(_ sender: Any) {
-        postImageView.image = UIImage(named: "spaceEmptyState")
-        selectImageButton.setTitle("", for: .normal)
         
+//        postImageView.image = UIImage(named: "spaceEmptyState")
+        selectImageButton.setTitle("", for: .normal)
+
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.mediaTypes = ["public.image"]
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Take photo", style: .default, handler: { (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                self.presentPostErrorToUser(textAlert: "Unable to take photo without camera!")
+            }
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Choose photo from your library", style: .default, handler: { (action: UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+
+        }))
+
+//        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        if postImageView.image != nil {
+//            actionSheet.addAction(UIAlertAction(title: "Remove Photo", style: .destructive, handler: { (_ action: UIAlertAction) in
+//                self.postImageView = nil
+//            }))
+//        }
+        present(actionSheet, animated: true, completion: nil)
     }
+    
+   
     
     @IBAction func addPostButtonTapped(_ sender: Any) {
 //        guard let caption = postCaptionTextField.text, !caption.isEmpty else { return }
@@ -73,59 +102,20 @@ class AddPostTableViewController: UITableViewController {
         return 1
     }
     
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+} // END OF CLASS
+
+
+extension AddPostTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            postImageView.image = image
+            dismiss(animated: true, completion: nil)
+        }
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

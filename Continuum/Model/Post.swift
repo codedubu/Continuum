@@ -53,13 +53,8 @@ class Comment {
 
 extension Post: SearchableRecord {
     func matches(searchTerm: String) -> Bool {
-//        return caption == searchTerm ?  true : false
-        if caption == searchTerm {
-            return true
-        } else {
-            return false
-        }
-
+        return caption.lowercased().contains(searchTerm.lowercased()) ?  true : false
+        
     }
     
     
